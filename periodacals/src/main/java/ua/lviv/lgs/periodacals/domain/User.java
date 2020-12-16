@@ -1,18 +1,35 @@
 package ua.lviv.lgs.periodacals.domain;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column
     private  String email;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+
+    @Enumerated(EnumType.STRING)
     private UserRole role;
+    @Column
     private String password;
 
     public User() {
     }
-
+    public User(User user) {
+        this.id = user.id;
+        this.email = user.email;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.role = user.role;
+        this.password = user.password;
+    }
     public User(String email, String firstName, String lastName, UserRole role, String password) {
         this.email = email;
         this.firstName = firstName;

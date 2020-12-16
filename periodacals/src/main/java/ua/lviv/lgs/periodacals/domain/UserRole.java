@@ -1,6 +1,11 @@
 package ua.lviv.lgs.periodacals.domain;
 
-public enum UserRole {
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-    ADMINISTRATOR,USER;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+public enum UserRole {
+    ADMINISTRATOR,USER_ROLE;
 }
